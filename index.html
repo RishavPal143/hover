@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Skeletal Snake Cursor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<script>
+  const tracks = [
+    new Audio('music1.mp3'),
+    new Audio('music2.mp3'),
+    new Audio('music3.mp3'),
+    new Audio('music4.mp3'),
+    new Audio('music5.mp3')
+  ];
+
+  function playMusic(index) {
+    tracks.forEach((track, i) => {
+      if (i !== index) track.pause();
+    });
+    tracks[index].currentTime = 0;
+    tracks[index].play();
+  }
+</script>
+
+<body>
+  <div class="music-buttons">
+    <button onclick="playMusic(0)">🎵 1</button>
+    <button onclick="playMusic(1)">🎵 2</button>
+    <button onclick="playMusic(2)">🎵 3</button>
+    <button onclick="playMusic(3)">🎵 4</button>
+    <button onclick="playMusic(4)">🎵 5</button>
+  </div>
+  
+  <div id="countdown"></div>
+
+  <canvas id="canvas"></canvas>
+  <script src="snake.js"></script>
+  
+
+</body>
+</html>
